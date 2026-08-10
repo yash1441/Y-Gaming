@@ -1,4 +1,9 @@
 import type { Interest } from '../types';
 
-/** Interest entries. Populate from confirmed facts only. */
-export const interests: Interest[] = [];
+/** Personal interests for the homepage “What I enjoy” constellation. */
+export const interests: Interest[] = [
+  { name: 'Gaming' },
+  { name: 'Anime' },
+  { name: 'K-pop' },
+  { name: 'Pokémon' },
+];

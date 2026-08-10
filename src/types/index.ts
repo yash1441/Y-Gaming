@@ -63,10 +63,21 @@ export interface Artwork {
   note?: string;
 }
 
-export interface CreatorLink {
+/** A Y-Gaming platform destination. Omit `url` until a confirmed link exists. */
+export interface CreatorPlatform {
+  id: string;
   label: string;
-  url: string;
-  note?: string;
+  activity: string;
+  url?: string;
+}
+
+/** Y-Gaming creator brand — distinct from Simon's personal identity */
+export interface CreatorBrand {
+  name: string;
+  tagline: string;
+  description: string;
+  attribution: string;
+  platforms: CreatorPlatform[];
 }
 
 /** A single living “currently exploring” interest */

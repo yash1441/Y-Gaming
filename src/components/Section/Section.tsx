@@ -5,20 +5,34 @@ interface SectionProps {
   id: string;
   title: string;
   children?: ReactNode;
+  className?: string;
+  /** Override default section title styles (e.g. brand display headings) */
+  titleClassName?: string;
   /** Development shell only — no visual section design yet */
   shell?: boolean;
 }
 
-export function Section({ id, title, children, shell = false }: SectionProps) {
+export function Section({
+  id,
+  title,
+  children,
+  className,
+  titleClassName,
+  shell = false,
+}: SectionProps) {
   const headingId = `${id}-heading`;
+  const baseClass = shell ? styles.shell : styles.section;
+  const headingClass = shell
+    ? 'sr-only'
+    : (titleClassName ?? styles.title);
 
   return (
     <section
       id={id}
-      className={shell ? styles.shell : styles.section}
+      className={className ? `${baseClass} ${className}` : baseClass}
       aria-labelledby={headingId}
     >
-      <h2 id={headingId} className={shell ? 'sr-only' : styles.title}>
+      <h2 id={headingId} className={headingClass}>
         {title}
       </h2>
       {shell ? (
