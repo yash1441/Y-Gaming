@@ -9,11 +9,21 @@ export interface Profile {
   formalName: string;
   tagline?: string;
   shortBio?: string;
+  /** Short personal introduction paragraphs for homepage "Who I am" */
+  introduction?: string[];
+}
+
+/** Restrained note for secondary builds when full project entries do not exist yet */
+export interface OtherBuilds {
+  heading: string;
+  note?: string;
 }
 
 export interface Experience {
   organization: string;
   role: string;
+  /** Team or group within the organization (e.g. BotLabs) */
+  team?: string;
   summary?: string;
   startDate?: string;
   endDate?: string;
@@ -68,4 +78,17 @@ export interface SocialLink {
   platform: string;
   url: string;
   note?: string;
+}
+
+export interface NavigationItem {
+  id: string;
+  label: string;
+  href: string;
+  /** Brand/home link shown as site identity in the nav */
+  isBrand?: boolean;
+}
+
+export interface HomeSection {
+  id: string;
+  title: string;
 }

@@ -1,0 +1,48 @@
+.cue {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  align-self: flex-start;
+  min-height: var(--touch-target);
+  margin-top: clamp(3rem, 12vh, 6rem);
+  font-size: 0.875rem;
+  font-weight: 450;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-accent);
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+  animation: cue-in 800ms ease both;
+  animation-delay: 280ms;
+}
+
+.cue:hover {
+  color: var(--color-text-primary);
+}
+
+.label {
+  line-height: 1;
+}
+
+.arrow {
+  line-height: 1;
+  font-size: 1rem;
+}
+
+@keyframes cue-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cue {
+    animation: none;
+  }
+}

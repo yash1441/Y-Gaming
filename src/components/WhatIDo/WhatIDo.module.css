@@ -1,0 +1,57 @@
+.snapshot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 42rem;
+}
+
+.roleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.role {
+  margin: 0;
+  font-size: clamp(1.625rem, 4vw, 2.5rem);
+  font-weight: 560;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+
+.context {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 450;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.summary {
+  margin: 0;
+  max-width: 28rem;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 768px) {
+  .snapshot {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
+    gap: var(--space-2xl);
+    column-gap: clamp(2rem, 6vw, 4.5rem);
+    max-width: none;
+    padding-block: var(--space-sm);
+  }
+
+  .summary {
+    max-width: 26rem;
+    /* Align with role baseline on wide layouts */
+    padding-top: 0.35rem;
+  }
+}

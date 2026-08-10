@@ -1,6 +1,5 @@
 /**
  * Design tokens from docs/DESIGN_SPEC.md.
- * Visual design and homepage layout are not implemented yet.
  */
 :root {
   /* Brand greens */
@@ -15,19 +14,30 @@
   --color-elevated: #1b2420;
   --color-text-primary: #f1f3ef;
   --color-text-secondary: #a8aea8;
-  --color-text-muted: #737a74;
+  /* Lightened from #737A74 for WCAG AA 4.5:1 vs --color-background */
+  --color-text-muted: #7a817b;
 
   /* Borders */
   --color-border: rgba(241, 243, 239, 0.08);
   --color-border-strong: rgba(156, 176, 128, 0.24);
 
-  /* Spacing scale (starter) */
+  /* Focus */
+  --color-focus-ring: var(--color-accent);
+
+  /* Spacing scale */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2.5rem;
   --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Layout */
+  --layout-max-width: 72rem;
+  --layout-gutter: clamp(1.25rem, 4vw, 3rem);
+  --nav-height: 4rem;
+  --touch-target: 2.75rem;
 
   /* Radii (restrained) */
   --radius-sm: 0.25rem;
@@ -41,4 +51,5 @@
   --font-sans: 'Geist', system-ui, sans-serif;
   --font-size-base: 1rem;
   --line-height-base: 1.5;
+  --font-size-hero-name: clamp(3.25rem, 14vw, 8.5rem);
 }

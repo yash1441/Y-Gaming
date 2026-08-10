@@ -1,0 +1,11 @@
+/**
+ * Self-hosted Geist Sans (variable).
+ * Source: vercel/geist-font — SIL Open Font License (see public/fonts/Geist-OFL.txt).
+ */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/GeistVariable.woff2') format('woff2');
+}
