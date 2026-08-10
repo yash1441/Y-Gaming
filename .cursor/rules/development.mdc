@@ -1,0 +1,36 @@
+---
+description: React + Vite + TypeScript implementation standards and stack boundaries
+globs: src/**/*, *.{ts,tsx,json}, vite.config.ts, tsconfig*.json, index.html, .github/**/*
+alwaysApply: false
+---
+
+# Development
+
+Follow `docs/TECHNICAL_ARCHITECTURE.md`. Keep solutions simple and dependencies minimal.
+
+## Stack
+
+- **React + Vite + TypeScript**
+- Styling: plain CSS / CSS Modules or structured global CSS (not Tailwind unless approved)
+- Hosting target: static site on GitHub Pages (`y-gaming.in`)
+
+## Content vs presentation
+
+Site copy and facts live in `src/data/` (profile, work, projects, interests, artwork, socials, creator, current). Components render data; they do not hardcode biographies. Define types in `src/types/`.
+
+## Repository structure
+
+Prefer the layout in TECHNICAL_ARCHITECTURE: `src/components`, `src/data`, `src/layouts`, `src/pages`, `src/styles`, `src/types`, `public/`, `docs/`, `tests/`.
+
+Components roughly: primitives → content components → layout. Do not over-fragment.
+
+## Explicitly out of scope (need approval)
+
+Do not add backend infrastructure, databases, CMSs, authentication, APIs, SSR, analytics, or other excluded technologies from the architecture doc without explicit approval.
+
+## Quality bar
+
+- Prefer readable code over clever abstractions
+- Justify every new dependency
+- Self-host Geist when practical; optimize images before commit
+- **Implementation is not complete until `npm run build` succeeds**

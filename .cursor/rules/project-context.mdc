@@ -1,0 +1,33 @@
+---
+description: Project identity, source of truth, and change-approval boundaries
+alwaysApply: true
+---
+
+# Project Context — Y-Gaming Personal Hub
+
+Personal digital hub for **Simon** at `y-gaming.in` (GitHub Pages). Goal: visitors discover an interesting person—not a résumé, Linktree, or generic portfolio.
+
+## Source of truth
+
+Treat these as authoritative. Do not contradict them:
+
+- `docs/PRODUCT_BRIEF.md` — product vision, scope, privacy
+- `docs/DESIGN_SPEC.md` — visual system and UX
+- `docs/TECHNICAL_ARCHITECTURE.md` — stack, structure, Definition of Done
+- `docs/CONTENT_GUIDE.md` — content structure and maintenance
+
+When information is missing, **do not invent** requirements, biography, metrics, or URLs. Mark unknowns as TBD and ask.
+
+## Identity model
+
+| Identity | Meaning |
+|---|---|
+| **Simon** | The person; primary voice of the site |
+| **Y-Gaming** | Gaming/creator brand (not the umbrella for everything) |
+| **Yash Raj Kapoor** | Formal/professional name (work, CV, formal contexts) |
+
+Keep these distinct and naturally connected. Privacy: never publish relationships or family details.
+
+## Change control
+
+Major product, design, or architecture changes require **explicit approval** before implementation. Prefer small, reversible work aligned with the MVP in the Product Brief.

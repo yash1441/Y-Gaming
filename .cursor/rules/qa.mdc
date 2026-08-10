@@ -1,0 +1,50 @@
+---
+description: QA checklist, reporting standards, and Definition of Done
+globs: tests/**/*, **/*.{test,spec}.{ts,tsx}
+alwaysApply: false
+---
+
+# QA
+
+Applies to testing, review, and QA work. Primary job: **inspect and report**. Do not silently rewrite unrelated code. Fix only when explicitly assigned; keep changes scoped to the defect.
+
+Definition of Done is in `docs/TECHNICAL_ARCHITECTURE.md`. A feature is not complete until that DoD is satisfied.
+
+## Checklist
+
+### Functionality
+
+- [ ] Acceptance criteria / requirements met
+- [ ] Navigation and in-app routes work (including direct URL load on GitHub Pages strategy)
+- [ ] Interactive controls behave as expected
+
+### Responsive
+
+- [ ] Mobile, tablet, and desktop layouts checked
+- [ ] Long names, missing images, and uneven content lengths do not break layout
+
+### Accessibility
+
+- [ ] Semantic HTML and heading hierarchy
+- [ ] Keyboard navigation and visible focus
+- [ ] Contrast, alt text, touch targets
+- [ ] `prefers-reduced-motion` respected
+
+### Visual consistency
+
+- [ ] Matches DESIGN_SPEC (dark/editorial, green accents, Geist)
+- [ ] No banned aesthetics (neon, heavy gradients, glassmorphism, card spam, gratuitous motion)
+
+### Performance & links
+
+- [ ] No obvious jank or oversized unoptimized assets
+- [ ] Internal and external links resolve; no placeholder `#` left in production paths
+
+### Build
+
+- [ ] `npm run build` succeeds
+- [ ] Relevant tests pass when present
+
+## Reporting
+
+State: what failed, where (page/component), severity, and suggested fix. Prefer evidence over opinion. Do not expand scope into drive-by refactors.

@@ -1,0 +1,46 @@
+---
+description: Dark minimal editorial UI — green palette, Geist, anti-generic aesthetics
+globs: src/**/*.{tsx,ts,css}, src/styles/**/*, public/**/*
+alwaysApply: false
+---
+
+# Design System
+
+Applies to UI and frontend work. For visual decisions, consult `docs/DESIGN_SPEC.md`.
+
+## Direction
+
+Dark, minimal, editorial, calm. Personal corner of the internet—not a gaming site or AI portfolio template.
+
+**Theme:** dark · **Accent:** green · **Type:** Geist · **Layout:** spacious / editorial · **Motion:** subtle
+
+## Palette (accents, not backgrounds)
+
+| Token | Value |
+|---|---|
+| Sage (primary accent) | `#9CB080` |
+| Muted green | `#618764` |
+| Deep green | `#2B5748` |
+| Green charcoal | `#273338` |
+| Background | `#0D1110` |
+| Surface | `#141A17` |
+| Elevated | `#1B2420` |
+| Text primary / secondary / muted | `#F1F3EF` / `#A8AEA8` / `#737A74` |
+
+Use CSS design tokens. Do not introduce unapproved colors.
+
+## Typography
+
+Geist only for now. Personality from **scale, spacing, and composition**—not decorative fonts.
+
+## Do / Don't
+
+**Do:** whitespace, strong hierarchy, restrained green accents, editorial/asymmetric layouts, semantic HTML, mobile + desktop together.
+
+**Don't:** neon cyberpunk, excessive gradients, glassmorphism, particle/glow spectacle, turning everything into cards, unnecessary animation, generic AI portfolio aesthetics, filling empty space for its own sake.
+
+## Motion, responsive, a11y
+
+- Motion: hover, light entrances, nav/page transitions only; respect `prefers-reduced-motion`
+- Responsive: intentional mobile reading flow, not a collapsed desktop
+- Accessibility: keyboard nav, visible focus, contrast, alt text, heading hierarchy, touch targets; no hover-only interaction
