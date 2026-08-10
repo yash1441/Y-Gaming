@@ -1,18 +1,85 @@
+/**
+ * Quiet Close — Footer.
+ * Final punctuation of the page. Quieter than Connect; not a content section.
+ */
+
 .footer {
   border-top: 1px solid var(--color-border);
-  padding-block: var(--space-xl);
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-xl);
 }
 
 .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-lg);
   max-width: var(--layout-max-width);
   margin-inline: auto;
   padding-inline: var(--layout-gutter);
 }
 
-.credit {
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.mark {
   margin: 0;
   font-size: 0.8125rem;
-  letter-spacing: 0.06em;
+  font-weight: 560;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-muted);
+}
+
+.copyright {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.backToTop {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-target);
+  font-size: 0.8125rem;
+  font-weight: 450;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .backToTop:hover {
+    color: var(--color-accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backToTop {
+    transition: none;
+  }
+}
+
+/* Tablet+: compact two-part horizontal layout */
+@media (min-width: 768px) {
+  .inner {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-xl);
+  }
+
+  .mark {
+    font-size: 0.875rem;
+  }
+
+  .backToTop {
+    flex-shrink: 0;
+    font-size: 0.875rem;
+  }
 }
