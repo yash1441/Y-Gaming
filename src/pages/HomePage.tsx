@@ -1,3 +1,4 @@
+import { CurrentlyExploring } from '../components/CurrentlyExploring/CurrentlyExploring';
 import { Hero } from '../components/Hero/Hero';
 import { Section } from '../components/Section/Section';
 import { WhatIBuild } from '../components/WhatIBuild/WhatIBuild';
@@ -6,7 +7,7 @@ import { WhoIAm } from '../components/WhoIAm/WhoIAm';
 import { homeSections } from '../data/home';
 import { PageLayout } from '../layouts/PageLayout';
 
-const implementedSectionIds = new Set(['who', 'work', 'build']);
+const implementedSectionIds = new Set(['who', 'work', 'build', 'exploring']);
 
 export function HomePage() {
   const remainingSections = homeSections.filter(
@@ -20,6 +21,7 @@ export function HomePage() {
         <WhoIAm />
         <WhatIBuild />
         <WhatIDo />
+        <CurrentlyExploring />
         {remainingSections.map((section) => (
           <Section
             key={section.id}

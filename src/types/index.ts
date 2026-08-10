@@ -69,9 +69,19 @@ export interface CreatorLink {
   note?: string;
 }
 
+/** A single living “currently exploring” interest */
 export interface CurrentInterest {
-  topic: string;
-  note?: string;
+  title: string;
+  description?: string;
+}
+
+/**
+ * Homepage “Currently exploring” content.
+ * Featured carries visual weight; secondary holds quieter future interests.
+ */
+export interface CurrentExploring {
+  featured: CurrentInterest;
+  secondary: CurrentInterest[];
 }
 
 export interface SocialLink {

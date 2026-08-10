@@ -2,7 +2,7 @@ import type { HomeSection } from '../types';
 
 /**
  * Homepage section order after the hero.
- * `who`, `build`, and `work` are implemented; remaining entries are shells.
+ * `who`, `build`, `work`, and `exploring` are implemented; remaining entries are shells.
  */
 export const homeSections: HomeSection[] = [
   { id: 'who', title: 'Who I am' },
