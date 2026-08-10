@@ -1,0 +1,203 @@
+/**
+ * Quiet Directory — Connect.
+ * Typographic, spacious, editorial. Two-zone on tablet+; single column on mobile.
+ * Uses default Section spacing after Y-Gaming (Artwork may be omitted).
+ */
+
+.supporting {
+  margin: 0;
+  max-width: 28rem;
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.directory {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  margin-top: var(--space-2xl);
+}
+
+.zonePrimary,
+.zoneSecondary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  min-width: 0;
+}
+
+.group {
+  min-width: 0;
+}
+
+.groupLabel {
+  margin: 0 0 var(--space-md);
+  font-size: 0.78125rem;
+  font-weight: 450;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+  max-width: 100%;
+  padding-block: var(--space-xs);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: color var(--transition-normal);
+}
+
+.linkLabel {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition:
+    color var(--transition-normal),
+    text-decoration-color var(--transition-normal);
+}
+
+.arrow {
+  color: var(--color-text-muted);
+  transition: color var(--transition-normal);
+}
+
+/* Creator primary — YouTube, Twitch, Instagram */
+.linkPrimary {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  font-weight: 520;
+  letter-spacing: -0.01em;
+}
+
+/* Creator secondary — X, Facebook */
+.linkQuiet {
+  font-size: 0.9375rem;
+  font-weight: 450;
+  color: var(--color-text-secondary);
+}
+
+.linkQuiet .linkLabel {
+  color: var(--color-text-secondary);
+}
+
+/* Personal & Professional / Direct — do not exceed Creator primary */
+.link:not(.linkPrimary):not(.linkQuiet) {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: var(--color-accent);
+  }
+
+  .link:hover .linkLabel {
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
+  }
+
+  .link:hover .arrow {
+    color: var(--color-accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .linkLabel,
+  .arrow {
+    transition: none;
+  }
+}
+
+/* Tablet+: asymmetric two-zone — Creator carries the primary story */
+@media (min-width: 768px) {
+  .directory {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    column-gap: clamp(2.5rem, 6vw, 5rem);
+    row-gap: 0;
+    align-items: start;
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .zonePrimary {
+    padding-right: clamp(0rem, 2vw, 1rem);
+  }
+
+  .zoneSecondary {
+    gap: var(--space-2xl);
+    padding-left: clamp(1.25rem, 3vw, 2rem);
+    border-left: 1px solid var(--color-border);
+  }
+
+  .groupLabel {
+    margin-bottom: var(--space-lg);
+  }
+
+  .list {
+    gap: var(--space-sm);
+  }
+
+  .link {
+    min-width: unset;
+    min-height: unset;
+    padding-block: 0.35rem;
+  }
+}
+
+/* Desktop: more generous whitespace; Creator remains dominant */
+@media (min-width: 1280px) {
+  .directory {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.95fr);
+    column-gap: clamp(3.5rem, 8vw, 7rem);
+    padding-top: var(--space-2xl);
+  }
+
+  .zoneSecondary {
+    gap: clamp(2.5rem, 5vh, 4rem);
+    padding-left: clamp(1.75rem, 3vw, 2.5rem);
+  }
+
+  .supporting {
+    max-width: 32rem;
+  }
+}
+
+/* Mobile group separation via subtle hairline between stacked zones */
+@media (max-width: 767px) {
+  .zoneSecondary {
+    gap: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .zoneSecondary .group + .group {
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+}

@@ -101,6 +101,34 @@ export interface SocialLink {
   note?: string;
 }
 
+/** Connect section group identifiers — Quiet Directory */
+export type ConnectGroupId = 'creator' | 'personal' | 'direct';
+
+/** Whose presence the destination represents */
+export type ConnectIdentity = 'y-gaming' | 'simon';
+
+export interface ConnectLink {
+  id: string;
+  label: string;
+  url: string;
+  group: ConnectGroupId;
+  identity: ConnectIdentity;
+  /** true for http(s); false for mailto */
+  external: boolean;
+}
+
+export interface ConnectGroup {
+  id: ConnectGroupId;
+  label: string;
+}
+
+export interface ConnectContent {
+  supportingLine: string;
+  groups: ConnectGroup[];
+  /** Display order within each group follows array order */
+  links: ConnectLink[];
+}
+
 export interface NavigationItem {
   id: string;
   label: string;

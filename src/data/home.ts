@@ -2,9 +2,8 @@ import type { HomeSection } from '../types';
 
 /**
  * Homepage section order after the hero.
- * `who`, `build`, `work`, `exploring`, `enjoy`, `y-gaming`, and `artwork` are
- * implemented. Artwork renders only when `src/data/artwork.ts` has real entries.
- * Remaining entries are shells.
+ * All listed sections are implemented. Artwork renders only when
+ * `src/data/artwork.ts` has real entries.
  */
 export const homeSections: HomeSection[] = [
   { id: 'who', title: 'Who I am' },
