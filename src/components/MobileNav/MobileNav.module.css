@@ -26,6 +26,11 @@
   transition: color var(--transition-fast);
 }
 
+.link[aria-current='page'] {
+  color: var(--color-accent);
+  font-weight: 560;
+}
+
 .link:hover,
 .link:focus-visible {
   color: var(--color-accent);

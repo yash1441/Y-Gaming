@@ -1,0 +1,77 @@
+/**
+ * Community management — primary professional section.
+ * Editorial role snapshot, not a job listing.
+ */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  max-width: 42rem;
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.role {
+  margin: 0;
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-weight: 560;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+
+.context {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 450;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 34rem;
+}
+
+.paragraph {
+  margin: 0;
+  font-size: clamp(1.0625rem, 2.1vw, 1.1875rem);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+  color: var(--color-text-secondary);
+}
+
+.paragraph:first-child {
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 768px) {
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    max-width: none;
+    align-items: start;
+    padding-block: var(--space-sm);
+  }
+
+  .copy {
+    max-width: 32rem;
+    padding-top: 0.35rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .layout {
+    padding-left: clamp(0rem, 2vw, 1rem);
+  }
+}

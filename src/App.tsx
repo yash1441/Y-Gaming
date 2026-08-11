@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
-import { aboutMeta, homeMeta } from './data/siteMeta';
+import { WorkPage } from './pages/WorkPage';
+import { aboutMeta, homeMeta, workMeta } from './data/siteMeta';
 import { applyPageMeta } from './lib/applyPageMeta';
 
 function normalizePathname(pathname: string): string {
@@ -30,11 +31,19 @@ function App() {
       applyPageMeta(aboutMeta);
       return;
     }
+    if (pathname === '/work') {
+      applyPageMeta(workMeta);
+      return;
+    }
     applyPageMeta(homeMeta);
   }, [pathname]);
 
   if (pathname === '/about') {
     return <AboutPage />;
+  }
+
+  if (pathname === '/work') {
+    return <WorkPage />;
   }
 
   return <HomePage />;

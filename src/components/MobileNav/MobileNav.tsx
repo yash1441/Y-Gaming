@@ -27,6 +27,7 @@ export function MobileNav({ id, isOpen, items, onNavigate }: MobileNavProps) {
               ref={index === 0 ? firstLinkRef : undefined}
               className={styles.link}
               href={item.href}
+              aria-current={item.current ? 'page' : undefined}
               onClick={onNavigate}
             >
               {item.label}

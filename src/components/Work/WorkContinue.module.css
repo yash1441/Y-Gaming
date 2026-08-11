@@ -1,0 +1,99 @@
+/**
+ * Closing / Continue — text links (not cards/buttons).
+ */
+
+.section {
+  border-top: 1px solid var(--color-border);
+}
+
+.line {
+  margin: 0;
+  max-width: 28rem;
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: var(--space-2xl) 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 20rem;
+}
+
+.item {
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+  max-width: 100%;
+  padding-block: var(--space-xs);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: color var(--transition-normal);
+}
+
+.linkLabel {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition:
+    color var(--transition-normal),
+    text-decoration-color var(--transition-normal);
+}
+
+.arrow {
+  color: var(--color-text-muted);
+  transition: color var(--transition-normal);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: var(--color-accent);
+  }
+
+  .link:hover .linkLabel {
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
+  }
+
+  .link:hover .arrow {
+    color: var(--color-accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .linkLabel,
+  .arrow {
+    transition: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .list {
+    margin-top: var(--space-xl);
+    gap: var(--space-sm);
+  }
+
+  /* Keep ≥44px hit area through tablet/desktop; text size unchanged */
+  .link {
+    min-height: var(--touch-target);
+    padding-block: 0;
+  }
+}

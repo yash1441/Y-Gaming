@@ -1,5 +1,9 @@
 import { useEffect, useId, useRef, useState } from 'react';
-import { navigationItems, resolveNavigationHref } from '../../data/navigation';
+import {
+  isCurrentNavigationItem,
+  navigationItems,
+  resolveNavigationHref,
+} from '../../data/navigation';
 import { MobileNav } from '../MobileNav/MobileNav';
 import styles from './Navigation.module.css';
 
@@ -28,10 +32,16 @@ export function Navigation() {
   const navRef = useRef<HTMLElement>(null);
 
   const brandItem = navigationItems.find((item) => item.isBrand);
-  const linkItems = navigationItems.filter((item) => !item.isBrand).map((item) => ({
-    ...item,
-    href: resolveNavigationHref(item.href, pathname),
-  }));
+  const linkItems = navigationItems
+    .filter((item) => !item.isBrand)
+    .map((item) => {
+      const href = resolveNavigationHref(item.href, pathname);
+      return {
+        ...item,
+        href,
+        current: isCurrentNavigationItem(item.href, pathname),
+      };
+    });
   const brandHref = brandItem
     ? resolveNavigationHref(brandItem.href, pathname)
     : undefined;
@@ -90,7 +100,7 @@ export function Navigation() {
         return;
       }
 
-      // Close after homepage anchors (#work) and cross-route home anchors (/#work).
+      // Close after homepage anchors and cross-route home anchors.
       const anchor = target.closest('a[href^="#"], a[href^="/#"]');
       if (!anchor) {
         return;
@@ -145,7 +155,11 @@ export function Navigation() {
           <ul className={styles.desktopList}>
             {linkItems.map((item) => (
               <li key={item.id}>
-                <a className={styles.link} href={item.href}>
+                <a
+                  className={styles.link}
+                  href={item.href}
+                  aria-current={item.current ? 'page' : undefined}
+                >
                   {item.label}
                 </a>
               </li>

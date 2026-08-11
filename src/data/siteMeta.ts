@@ -1,5 +1,6 @@
 import type { PageMeta } from '../types';
 import { about } from './about';
+import { workPage } from './workPage';
 
 const SITE_ORIGIN = 'https://y-gaming.in';
 const OG_IMAGE = `${SITE_ORIGIN}/og/og-default.png`;
@@ -16,3 +17,5 @@ export const homeMeta: PageMeta = {
 };
 
 export const aboutMeta: PageMeta = about.meta;
+
+export const workMeta: PageMeta = workPage.meta;

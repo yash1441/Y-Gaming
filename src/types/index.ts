@@ -135,6 +135,8 @@ export interface NavigationItem {
   href: string;
   /** Brand/home link shown as site identity in the nav */
   isBrand?: boolean;
+  /** When true, renders aria-current="page" on the nav link */
+  current?: boolean;
 }
 
 export interface HomeSection {
@@ -184,6 +186,42 @@ export interface AboutContent {
   closing: {
     line: string;
     links: AboutContinueLink[];
+  };
+  meta: PageMeta;
+}
+
+/** Continue / closing link on the Work page */
+export interface WorkContinueLink {
+  id: string;
+  label: string;
+  href: string;
+}
+
+/** Structured Work page content — presentation stays in components */
+export interface WorkPageContent {
+  hero: {
+    eyebrow: string;
+    title: string;
+    opening: string;
+  };
+  role: {
+    title: string;
+    role: string;
+    context: string;
+    paragraphs: string[];
+  };
+  overlap: {
+    title: string;
+    paragraphs: string[];
+  };
+  alongside: {
+    title: string;
+    framing: string;
+    projectId: string;
+  };
+  closing: {
+    line: string;
+    links: WorkContinueLink[];
   };
   meta: PageMeta;
 }
