@@ -1,0 +1,57 @@
+/**
+ * Currently — related to homepage Currently Exploring without copying its layout.
+ * Typographic emphasis; no assets.
+ */
+
+.section {
+  border-top: 1px solid var(--color-border);
+}
+
+.featured {
+  max-width: 28rem;
+}
+
+.topic {
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 3.75rem);
+  font-weight: 560;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--color-text-primary);
+}
+
+.description {
+  margin: var(--space-lg) 0 0;
+  max-width: 22rem;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 768px) {
+  .featured {
+    max-width: none;
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.85fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: end;
+    padding-block: var(--space-sm);
+  }
+
+  .topic {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .description {
+    margin-top: 0;
+    max-width: 22rem;
+    padding-bottom: 0.35rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .featured {
+    padding-left: clamp(0rem, 2vw, 1rem);
+  }
+}

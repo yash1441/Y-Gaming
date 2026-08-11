@@ -15,6 +15,14 @@ export function WhoIAm() {
             {paragraph}
           </p>
         ))}
+        <p className={styles.more}>
+          <a className={styles.aboutLink} href="/about">
+            <span className={styles.aboutLinkLabel}>Read more about me</span>
+            <span className={styles.arrow} aria-hidden="true">
+              →
+            </span>
+          </a>
+        </p>
       </div>
     </Section>
   );

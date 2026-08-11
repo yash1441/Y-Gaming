@@ -141,3 +141,49 @@ export interface HomeSection {
   id: string;
   title: string;
 }
+
+/** Page metadata for document head (title, description, social) */
+export interface PageMeta {
+  title: string;
+  description: string;
+  /** Absolute canonical URL */
+  canonicalUrl: string;
+  ogImage?: string;
+}
+
+/** Continue / closing link on the About page */
+export interface AboutContinueLink {
+  id: string;
+  label: string;
+  href: string;
+}
+
+/** Structured About page content — presentation stays in components */
+export interface AboutContent {
+  hero: {
+    title: string;
+    opening: string;
+  };
+  intro: {
+    title: string;
+    paragraphs: string[];
+  };
+  work: {
+    title: string;
+    paragraphs: string[];
+  };
+  making: {
+    title: string;
+    paragraphs: string[];
+  };
+  currently: {
+    title: string;
+    topic: string;
+    description: string;
+  };
+  closing: {
+    line: string;
+    links: AboutContinueLink[];
+  };
+  meta: PageMeta;
+}

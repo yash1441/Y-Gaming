@@ -1,41 +1,53 @@
-.content {
-  max-width: 38rem;
+/**
+ * Closing / Continue — text links using site link treatment (not cards/buttons).
+ */
+
+.section {
+  border-top: 1px solid var(--color-border);
 }
 
-.copy {
+.line {
   margin: 0;
-  font-size: clamp(1.0625rem, 2.1vw, 1.25rem);
+  max-width: 28rem;
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.35;
   letter-spacing: -0.01em;
   color: var(--color-text-primary);
 }
 
-.copy + .copy {
-  margin-top: var(--space-lg);
-  color: var(--color-text-secondary);
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: var(--space-2xl) 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 20rem;
 }
 
-.more {
-  margin: var(--space-xl) 0 0;
+.item {
+  margin: 0;
+  padding: 0;
 }
 
-.aboutLink {
+.link {
   display: inline-flex;
   align-items: center;
-  gap: 0.35em;
+  gap: 0.4em;
+  min-width: var(--touch-target);
   min-height: var(--touch-target);
   max-width: 100%;
   padding-block: var(--space-xs);
-  font-size: 1rem;
-  font-weight: 450;
-  letter-spacing: -0.01em;
   text-decoration: none;
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   transition: color var(--transition-normal);
 }
 
-.aboutLinkLabel {
+.linkLabel {
   text-decoration: underline;
   text-decoration-color: transparent;
   text-decoration-thickness: 1px;
@@ -51,35 +63,36 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .aboutLink:hover {
+  .link:hover {
     color: var(--color-accent);
   }
 
-  .aboutLink:hover .aboutLinkLabel {
+  .link:hover .linkLabel {
     color: var(--color-accent);
     text-decoration-color: var(--color-accent);
   }
 
-  .aboutLink:hover .arrow {
+  .link:hover .arrow {
     color: var(--color-accent);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .aboutLink,
-  .aboutLinkLabel,
+  .link,
+  .linkLabel,
   .arrow {
     transition: none;
   }
 }
 
 @media (min-width: 768px) {
-  .content {
-    /* Editorial inset — keeps the intro quieter than the hero */
-    padding-left: clamp(0rem, 4vw, 2.5rem);
+  .list {
+    margin-top: var(--space-xl);
+    gap: var(--space-sm);
   }
 
-  .aboutLink {
+  .link {
+    min-width: unset;
     min-height: unset;
     padding-block: 0.35rem;
   }

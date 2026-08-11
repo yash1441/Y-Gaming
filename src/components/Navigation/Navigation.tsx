@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react';
-import { navigationItems } from '../../data/navigation';
+import { navigationItems, resolveNavigationHref } from '../../data/navigation';
 import { MobileNav } from '../MobileNav/MobileNav';
 import styles from './Navigation.module.css';
 
@@ -15,14 +15,35 @@ function getVisibleFocusable(root: HTMLElement): HTMLElement[] {
   });
 }
 
+function getPathname(): string {
+  const trimmed = window.location.pathname.replace(/\/+$/, '');
+  return trimmed === '' ? '/' : trimmed;
+}
+
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [pathname, setPathname] = useState(getPathname);
   const menuId = useId();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
 
   const brandItem = navigationItems.find((item) => item.isBrand);
-  const linkItems = navigationItems.filter((item) => !item.isBrand);
+  const linkItems = navigationItems.filter((item) => !item.isBrand).map((item) => ({
+    ...item,
+    href: resolveNavigationHref(item.href, pathname),
+  }));
+  const brandHref = brandItem
+    ? resolveNavigationHref(brandItem.href, pathname)
+    : undefined;
+
+  useEffect(() => {
+    const onPopState = () => {
+      setPathname(getPathname());
+    };
+
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
 
   useEffect(() => {
     if (!isOpen) {
@@ -63,13 +84,14 @@ export function Navigation() {
       }
     };
 
-    const onInPageNavigate = (event: MouseEvent) => {
+    const onPrimaryNavigate = (event: MouseEvent) => {
       const target = event.target;
       if (!(target instanceof Element)) {
         return;
       }
 
-      const anchor = target.closest('a[href^="#"]');
+      // Close after homepage anchors (#work) and cross-route home anchors (/#work).
+      const anchor = target.closest('a[href^="#"], a[href^="/#"]');
       if (!anchor) {
         return;
       }
@@ -78,11 +100,11 @@ export function Navigation() {
     };
 
     document.addEventListener('keydown', onKeyDown);
-    document.addEventListener('click', onInPageNavigate);
+    document.addEventListener('click', onPrimaryNavigate);
 
     return () => {
       document.removeEventListener('keydown', onKeyDown);
-      document.removeEventListener('click', onInPageNavigate);
+      document.removeEventListener('click', onPrimaryNavigate);
     };
   }, [isOpen]);
 
@@ -114,8 +136,8 @@ export function Navigation() {
     <header className={styles.header}>
       <nav ref={navRef} className={styles.nav} aria-label="Primary">
         <div className={styles.inner}>
-          {brandItem ? (
-            <a className={styles.brand} href={brandItem.href}>
+          {brandItem && brandHref ? (
+            <a className={styles.brand} href={brandHref}>
               {brandItem.label}
             </a>
           ) : null}
